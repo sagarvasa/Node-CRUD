@@ -8,8 +8,10 @@ const PORT = process.env.PORT || 3000;
 const logger = require("./server/utility/logger");
 const constants = require("./server/utility/constants");
 
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+const mongo_connection = require("./server/helper/mongo-connection");
+
+app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -20,6 +22,14 @@ app.use((req, res, next) => {
     res.setHeader(constants.corr_id, req.get(constants.corr_id) ? req.get(constants.corr_id) : uuid.generate());
     next();
 })
+
+mongo_connection.establish_connection().then((connection) => {
+    logger.info(`Database connection obj: ${connection}`);
+}).catch((err) => {
+    //logger.error(`Database connection error: ${err.message}`);
+})
+
+require("./server/core/routes/index")(app);
 
 app.use(function (req, res, next) {
     let err = new Error(constants.not_found_message);
