@@ -33,10 +33,14 @@ var movieSchema = new Schema({
         type: String
     },
     writer: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     },
     actor_1: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     },
     actor_2: {
         type: String

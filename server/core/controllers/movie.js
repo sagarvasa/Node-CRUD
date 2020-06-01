@@ -1,5 +1,5 @@
 const insert_movie = (req, res) => {
-
+    return res.status(200).send(req.body)
 }
 
 const get_all_movies = (req, res) => {
