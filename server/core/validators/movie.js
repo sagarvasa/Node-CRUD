@@ -60,6 +60,8 @@ const update_movie = () => {
             .withMessage("id is required field")
             .trim()
             .notEmpty()
+            .isLength({min: 2, max: 24})
+            .withMessage("invalid value for id")
     ]
     return arr;
 }
@@ -71,6 +73,8 @@ const get_movie_by_id = () => {
             .withMessage("id is required field")
             .trim()
             .notEmpty()
+            .isLength({min: 2, max: 24})
+            .withMessage("invalid value for id")
     ]
     return arr;
 }
@@ -82,6 +86,8 @@ const delete_movie = () => {
             .withMessage("id is required field")
             .trim()
             .notEmpty()
+            .isLength({min: 2, max: 24})
+            .withMessage("invalid value for id")
     ]
     return arr;
 }

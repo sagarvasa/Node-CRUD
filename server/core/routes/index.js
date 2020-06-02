@@ -7,6 +7,9 @@ const router = (app) => {
         .get((req, res) => {
             res.status(200).send({message: "Server is up and running"})
         })
+
+    app.route("/api/load/all")
+        .post(movie_controllers.load_all_movies);
     
     app.route("/api/movies")
         .post(movie_validators.insert_movie(),movie_validators.validate, movie_controllers.insert_movie)

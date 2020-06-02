@@ -48,7 +48,7 @@ var movieSchema = new Schema({
     actor_3: {
         type: String
     }
-})
+}, {timestamps: true, strict: false})
 
 var MovieModel = mongoose.model('movie', movieSchema);
 

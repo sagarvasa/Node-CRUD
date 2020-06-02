@@ -13,7 +13,8 @@ let establish_connection = () => {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 poolSize: db_config.pool_size,
-                socketTimeoutMS: db_config.timeout
+                socketTimeoutMS: db_config.timeout,
+                useFindAndModify: false
             }
             client = await mongoose.create_connection(db_connection_obj, options);
             resolve(client)

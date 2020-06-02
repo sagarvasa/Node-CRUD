@@ -2,7 +2,8 @@
 CRUD API integration with Node and MongoDB
 
 # download and install Node and mongoDB using homebrew on mac
-
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+`brew install node`
 
 # steps to start and configure server
 1. Clone/Fork the repo in your workspace
