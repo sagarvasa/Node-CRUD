@@ -5,7 +5,8 @@ var movieSchema = new Schema({
     title: {
         type: String,
         trim: true,
-        required: true
+        required: true,
+        index: false //setting individual index to false
     },
     release_year: {
         type: String,
@@ -18,7 +19,9 @@ var movieSchema = new Schema({
         },
     },
     locations: {
-        type: String
+        type: String,
+        required: true,
+        index: false
     },
     fun_facts: {
         type: String
@@ -30,7 +33,8 @@ var movieSchema = new Schema({
         type: String
     },
     director: {
-        type: String
+        type: String,
+        lowercase: true
     },
     writer: {
         type: String,
@@ -49,6 +53,16 @@ var movieSchema = new Schema({
         type: String
     }
 }, {timestamps: true, strict: false})
+
+movieSchema.index({title: 1, locations: 1}, {unique: true}) //creating unique compund index
+
+movieSchema.pre("save", (next) => {
+    MovieModel.count(function (err, count) {
+        console.log("Err states before saving: "+ err);
+        console.log("no of document before saving: "+ count);
+        next();
+    })
+})
 
 var MovieModel = mongoose.model('movie', movieSchema);
 
