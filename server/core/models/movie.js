@@ -54,7 +54,7 @@ var movieSchema = new Schema({
     }
 }, {timestamps: true, strict: false})
 
-movieSchema.index({title: 1, locations: 1}, {unique: true}) //creating unique compund index
+movieSchema.index({title: 1, locations: 1}) //creating compund index
 
 movieSchema.pre("save", (next) => {
     MovieModel.count(function (err, count) {
