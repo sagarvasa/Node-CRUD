@@ -24,14 +24,14 @@
   },
   "homepage": "https://github.com/sagarvasa/Node-CRUD#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-validator": "^6.5.0",
-    "mongoose": "^5.9.16",
-    "shortid": "^2.2.15",
-    "util": "^0.12.3",
-    "winston": "^3.2.1"
+    "body-parser": "1.19.0",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-validator": "6.5.0",
+    "mongoose": "5.9.16",
+    "shortid": "2.2.15",
+    "util": "0.12.3",
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
